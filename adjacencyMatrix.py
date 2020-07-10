@@ -24,7 +24,7 @@ def addEdges(directed):
     print('Enter the vertices: ')
     for edge in range(numEdges):
         try:
-            #input taken as a space-separated integers e.g. 3 4, or 1 5
+            #input taken as 2 space-separated integers e.g. 3 4, or 1 5
             v1, v2 = map(int, input().split())
             if directed:                           
                 if not g.matrix[v1-1][v2-1]:
@@ -45,7 +45,7 @@ def removeEdges(directed):
     edges = int(input('Enter number of edges to remove: '))
     print('Enter the vertices: ')
     for edge in range(edges):
-        #input taken as a space-separated integers e.g. 3 4, or 1 5
+        #input taken as 2 space-separated integers e.g. 3 4, or 1 5
         v1, v2 = map(int, input().split())
         try:
             if directed:
