@@ -20,53 +20,49 @@ class Graph:
 
 # Add new edges to the graph
 def addEdges(directed):
-    numNodes = int(input('Enter the total number of edges: '))
-    try:
-        if directed:
-            print('Enter the vertices: ')
-            for edge in range(numNodes):   
-                v1, v2 = map(int, input().split())
-
+    numEdges = int(input('Enter the total number of edges: '))
+    print('Enter the vertices: ')
+    for edge in range(numEdges):
+        try:
+            #input taken as a space-separated integers e.g. 3 4, or 1 5
+            v1, v2 = map(int, input().split())
+            if directed:                           
                 if not g.matrix[v1-1][v2-1]:
                     g.addDirectedEdge(v1-1, v2-1)
                 else:
                     print('Edge already exists.')
-        else:
-            print('Enter the vertices: ')
-            for edge in range(numNodes):
-                v1, v2 = map(int, input().split())
-
+            else:
                 if not g.matrix[v1-1][v2-1]:
                     g.addUndirectedEdge(v1-1, v2-1)
                 else:
                     print('Edge already exists.')
 
-    except IndexError:
+        except IndexError:
             print("You are accessing an invalid node!")
 
 # Remove edges from the graph
 def removeEdges(directed):
     edges = int(input('Enter number of edges to remove: '))
-    try:
-        if directed:
-            print('Enter the vertices: ')
-            for edge in range(edges):
-                v1, v2 = map(int, input().split())
-                if g.matrix[v1-1][v2-1]:
-                    g.removeDirectedEdge(v1-1, v2-1)
-                else:
-                    print('No such edge.')
-
-        else:   
-            print('Enter the vertices: ')
-            for edge in range(edges):
-                v1, v2 = map(int, input().split())
+    print('Enter the vertices: ')
+    for edge in range(edges):
+        #input taken as a space-separated integers e.g. 3 4, or 1 5
+        v1, v2 = map(int, input().split())
+        try:
+            if directed:
+                print('Enter the vertices: ')
+                for edge in range(edges):
+                    v1, v2 = map(int, input().split())
+                    if g.matrix[v1-1][v2-1]:
+                        g.removeDirectedEdge(v1-1, v2-1)
+                    else:
+                        print('No such edge.')
+            else:   
                 if g.matrix[v1-1][v2-1]:
                     g.removeUndirectedEdge(v1-1, v2-1)
                 else:
                     print('No such edge.')
 
-    except IndexError:
+        except IndexError:
             print("You are accessing an invalid node!")
 
 g = Graph(int(input('Enter number of nodes: ')))
