@@ -1,5 +1,7 @@
 #!usr/bin/env python3
 
+""" Infytq DSA assignment 1 """
+
 # List element instance
 class Node:
     def __init__(self,data):
