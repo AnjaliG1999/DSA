@@ -66,9 +66,34 @@ class Conversion:
         return ''.join(self.result)
 
     def infixToPrefix(self, exp):
-        pass
+        self.stack = []
+        self.result = []
+        exp = exp[::-1]
+        for el in exp:
+            if el.isalpha():
+                self.result.append(el)
+                        
+            elif el == ')':
+                self.push(el)
+            
+            elif el == '(':
+                while self.peek() != ')':
+                    self.result.append(self.pop())
+                self.pop()
+            
+            else:
+                while (not self.isEmpty() and self.isNotGreater(el)):
+                    self.result.append(self.pop())
+                self.push(el)
+            
+        # # add the remaining operators to self.result
+        while not self.isEmpty():
+            self.result.append(self.pop())
+        
+        return ''.join(self.result[::-1])
 
 convert = Conversion()
 exp = "(A+B)*C-(D-E)*(F+G)"
 print(f'Infix Expression: {exp}')
 print(f'Postfix Expression: {convert.infixToPostfix(exp)}')
+print(f'Prefix Expression: {convert.infixToPrefix(exp)}')
