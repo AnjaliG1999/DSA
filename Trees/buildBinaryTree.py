@@ -62,6 +62,36 @@ def buildTreePost(postorder, inorder, start, end):
 	
 	return root
 
+def calculateHeightRec(root):
+	"""
+	Calculate the height of the tree
+
+	:param: root: Node, Root of the current tree
+	:rtype: int
+	"""
+	if not root: return 0
+
+	return 1 + max(calculateHeight(root.left), calculateHeight(root.right))
+
+def calculateHeightIter(root):
+	if not root:
+		return 0
+
+	height = 0
+	queue = [root]
+	while queue:
+		size = len(queue)
+		while size:
+			node = queue.pop(0)
+			if node.left:
+				queue.append(node.left)
+			if node.right:
+				queue.append(node.right)
+			size -= 1
+		height += 1
+
+	return height
+
 def inOrder(root):
 	"""
 	Inorder traversal of the tree
@@ -84,3 +114,6 @@ buildTreePost.postIndex = -1
 # root = buildTreePre(preorder, inorder, 0, len(inorder)-1)
 root = buildTreePost(postorder, inorder, 0, len(inorder)-1)
 inOrder(root)
+print()
+# print(f'Height of the tree: {calculateHeightRec(root)}')
+print(f'Height of the tree: {calculateHeightIter(root)}')
