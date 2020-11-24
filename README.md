@@ -1,2 +1,3 @@
 # Data-Structures-and-Algorithms
-Contains implementations of various data structures and algorithms in Python. The codes have all the main operations performed on them.
+Contains implementations of various data structures and algorithms in Python and C++.
+Implementations of the most important interview preparation and competitive programming questions.
