@@ -25,10 +25,10 @@ def fillDictIntersection(arr1, arr2):
     print("\nIntersection: ", end="")
     printDict(intersectionDict)
 
-def union(arr1, arr2):
+def arrUnion(arr1, arr2):
     fillDictUnion(arr1, arr2) if len(arr1) > len(arr2) else fillDictUnion(arr2, arr1)
         
-def intersection(arr1, arr2):
+def arrIntersection(arr1, arr2):
     fillDictIntersection(arr1, arr2) if len(arr1) < len(arr2) else fillDictIntersection(arr2, arr1)
 
 arr1 = [1, 5, 3, 0, 2, 1, 9]
@@ -36,5 +36,5 @@ arr2 = [4, 2, 5, 7]
 
 print("Array1: {}".format(arr1))
 print("Array2: {}".format(arr2))
-union(arr1, arr2)
-intersection(arr1, arr2)
+arrUnion(arr1, arr2)
+arrIntersection(arr1, arr2)
