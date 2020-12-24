@@ -17,8 +17,8 @@ def reverseList(arr):
 arr = [1, 2, 3, 4, 5, 6, 7]
 print("Array: {}".format(arr))
 
-revArray = reverseIterative(arr)
-# revArray = reverseRecursive(arr, 0, len(arr)-1)
 # revArray = reverseIterative(arr)
+revArray = reverseRecursive(arr, 0, len(arr)-1)
+# revArray = reverseList(arr)
 
 print("Reversed array: {}".format(revArray))
