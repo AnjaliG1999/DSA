@@ -3,7 +3,7 @@ def nearestSmallerElementRight(arr):
     output = [None] * n
 
     for i in range(n-1, -1, -1):
-        while (len(stack)!=0) and (arr[i] < stack[-1]):
+        while (len(stack)!=0) and (arr[i] <= stack[-1]):
             stack.pop()
         if len(stack)==0:
             output[i] = -1
@@ -18,7 +18,7 @@ def nearestSmallerElementLeft(arr):
     output = [None] * n
 
     for i in range(n):
-        while (len(stack)!=0) and (arr[i] < stack[-1]):
+        while (len(stack)!=0) and (arr[i] <= stack[-1]):
             stack.pop()
         if len(stack)==0:
             output[i] = -1
