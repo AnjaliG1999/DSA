@@ -12,7 +12,7 @@ int countSubsetSum (int *arr, int sum, int n) {
     }
     
     for(int i=1; i<=sum; i++) {
-        t[i][0] = 0;
+        t[i][0] = 1;
     }
 
     for(int i=1; i<=n; i++){
